@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.9)
-project(tt1_fasttext)
+project(tt1_fasttext CXX)
 
 set(CMAKE_MODULE_PATH ${PROJECT_SOURCE_DIR}/CMakeModules)
 
@@ -22,8 +22,12 @@ if (DEFINED ENV{TRAVIS})
     set(CMAKE_BUILD_TYPE "DEBUG")
 endif()
 
-set(SOURCE_FILES cli.h)
+add_subdirectory(3rdparty/pugixml-1.8)
+include_directories(3rdparty/pugixml-1.8/src/)
+
+set(SOURCE_FILES cli.h token_extractor.h)
 add_library(libtt1_fasttext ${SOURCE_FILES})
+target_link_libraries(libtt1_fasttext pugixml)
 
 add_executable(tt1_fasttext main.cpp 3rdparty/CLI11.hpp)
 target_link_libraries(tt1_fasttext libtt1_fasttext)
@@ -45,4 +49,5 @@ function(create_test NAME)
 endfunction(create_test)
 
 enable_testing()
+create_test(token_extractor)
 # NOTE don't forget to add command to .appveyor.yml

@@ -4,6 +4,7 @@
 
 #include <cstring>
 #include <iostream>
+#include <map>
 
 static const char* radcliffBirt = R"(
 <?xml version="1.0" encoding="UTF-8"?>
@@ -347,119 +348,7 @@ static const char* radcliffBirt = R"(
               </s>
             </item>
           </list>
-          <div>
-            Normdaten (Person):
-            <ref target="Gemeinsame_Normdatei" type="internal">GND</ref>
-            :
-            <ref target="http://d-nb.info/gnd/117605069" type="external">117605069</ref>
-            (
-            <ref target="http://dispatch.opac.d-nb.de/DB=4.1/SET=4/TTL=1/PRS=PP%7F/PPN?PPN=117605069" type="external">PICA</ref>
-            ,
-            <ref target="http://beacon.findbuch.de/seealso/pnd-aks?format=sources&amp;id=117605069" type="external">AKS</ref>
-            )   |
-            <ref target="Virtual_International_Authority_File" type="internal">VIAF</ref>
-            :
-            <ref target="http://viaf.org/viaf/222780358/" type="external">222780358</ref>
-            | [//tools.wmflabs.org/persondata/p/
-            <table type="transclusion" cols="2">
-              <head>SEITENNAME_URL</head>
-            </table>
-            Wikipedia-Personensuche]
-          </div>
           <p />
-          <table type="transclusion" cols="2">
-            <head>!</head>
-          </table>
-          style="color: #aaa;"
-          <table type="transclusion" cols="2">
-            <head>!</head>
-          </table>
-          NAME
-          <table type="transclusion" cols="2">
-            <head>!</head>
-          </table>
-          style="font-weight: bold;"
-          <table type="transclusion" cols="2">
-            <head>!</head>
-          </table>
-          Birt, William Radcliffe
-          <table type="transclusion" cols="2">
-            <head>!</head>
-          </table>
-          style="color: #aaa;"
-          <table type="transclusion" cols="2">
-            <head>!</head>
-          </table>
-          KURZBESCHREIBUNG
-          <table type="transclusion" cols="2">
-            <head>!</head>
-          </table>
-          englischer Amateur-Astronom
-          <table type="transclusion" cols="2">
-            <head>!</head>
-          </table>
-          style="color: #aaa;"
-          <table type="transclusion" cols="2">
-            <head>!</head>
-          </table>
-          GEBURTSDATUM
-          <table type="transclusion" cols="2">
-            <head>!</head>
-          </table>
-          15. Juli 1804
-          <table type="transclusion" cols="2">
-            <head>!</head>
-          </table>
-          style="color: #aaa;"
-          <table type="transclusion" cols="2">
-            <head>!</head>
-          </table>
-          GEBURTSORT
-          <table type="transclusion" cols="2">
-            <head>!</head>
-          </table>
-          <ref target="London" type="internal">London</ref>
-          <table type="transclusion" cols="2">
-            <head>!</head>
-          </table>
-          style="color: #aaa;"
-          <table type="transclusion" cols="2">
-            <head>!</head>
-          </table>
-          STERBEDATUM
-          <table type="transclusion" cols="2">
-            <head>!</head>
-          </table>
-          14. Dezember 1881
-          <table type="transclusion" cols="2">
-            <head>!</head>
-          </table>
-          style="color: #aaa;"
-          <table type="transclusion" cols="2">
-            <head>!</head>
-          </table>
-          STERBEORT
-          <table type="transclusion" cols="2">
-            <head>!</head>
-          </table>
-          <ref target="Leytonstone" type="internal">Leytonstone</ref>
-          <ref target="Essex" type="internal">Essex</ref>
-          <table>
-            <row>
-              <cell>
-                <p>
-                  <ref target="Hilfe:Personendaten" type="internal">Personendaten</ref>
-                </p>
-              </cell>
-            </row>
-            <row />
-            <row />
-            <row />
-            <row />
-            <row />
-            <row />
-            <row />
-          </table>
         </div2>
       </div1>
     </body>

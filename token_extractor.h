@@ -15,7 +15,10 @@ template<typename DocumentHandler, typename WordHandler>
 class token_extractor : public pugi::xml_tree_walker
 {
 public:
-    explicit token_extractor(DocumentHandler docHandler, WordHandler wordHandler);
+    explicit token_extractor(DocumentHandler docHandler, WordHandler wordHandler)
+        : mDocHandler(docHandler)
+        , mWordHandler(wordHandler)
+    { }
 
     bool for_each(pugi::xml_node& node) override;
 
@@ -23,13 +26,6 @@ private:
     DocumentHandler mDocHandler;
     WordHandler mWordHandler;
 };
-
-template<typename DocumentHandler, typename WordHandler>
-token_extractor<DocumentHandler, WordHandler>::token_extractor(DocumentHandler docHandler,
-                                                               WordHandler wordHandler)
-    : mDocHandler(docHandler)
-    , mWordHandler(wordHandler)
-{ }
 
 template<typename DocumentHandler, typename WordHandler>
 bool token_extractor<DocumentHandler, WordHandler>::for_each(pugi::xml_node& node)

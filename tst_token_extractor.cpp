@@ -111,7 +111,7 @@ TEST_CASE("reads tokens")
         lemmata.emplace_back(word.attributes["lemma"]);
     };
 
-    token_extractor extractor(docHandler, wordHandler);
+    auto extractor = make_extractor(docHandler, wordHandler);
 
     pugi::xml_document doc;
     doc.load_string(radcliffBirt);

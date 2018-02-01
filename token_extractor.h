@@ -46,5 +46,11 @@ bool token_extractor<DocumentHandler, WordHandler>::for_each(pugi::xml_node& nod
     return true;
 }
 
+template<typename DocHandler, typename WordHandler>
+token_extractor<DocHandler, WordHandler> make_extractor(DocHandler&& docH, WordHandler&& wordH)
+{
+    return token_extractor<DocHandler, WordHandler>(std::forward<DocHandler>(docH),
+                                                    std::forward<WordHandler>(wordH));
+};
 
 #endif //TT1_FASTTEXT_TOKEN_EXTRACTOR_H

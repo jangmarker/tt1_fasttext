@@ -3,6 +3,10 @@
 
 #include <ostream>
 
-int cli(int argc, char* argv[], std::ostream& ostream);
+int cli(int argc, char* argv[], std::ostream& ostream)
+{
+    // TODO
+    return 0;
+}
 
 #endif //TT1_CONTEXTGRAPH_CLI_H

@@ -18,6 +18,7 @@ test_script:
 on_finish:
   # required for failed tests
   - appveyor PushArtifact tst_token_extractor-junit.xml
+  - appveyor PushArtifact tst_data_file-junit.xml
 
 artifacts:
   - path: 'build\Debug\*tt1*.exe'

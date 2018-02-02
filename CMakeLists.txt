@@ -25,7 +25,7 @@ endif()
 add_subdirectory(3rdparty/pugixml-1.8)
 include_directories(3rdparty/pugixml-1.8/src/)
 
-set(SOURCE_FILES cli.h token_extractor.h)
+set(SOURCE_FILES cli.h token_extractor.h data_file.h)
 add_library(libtt1_fasttext ${SOURCE_FILES})
 target_link_libraries(libtt1_fasttext pugixml)
 
@@ -36,7 +36,7 @@ if(CMAKE_COMPILER_IS_GNUCXX)
     target_link_libraries(tt1_fasttext -lstdc++fs)
 endif()
 
-set(TEST_FILES 3rdparty/catch.hpp)
+set(TEST_FILES 3rdparty/catch.hpp data_file.h)
 add_library(libtt1_fasttext_test ${TEST_FILES} main_tst.cpp)
 
 function(create_test NAME)
@@ -50,4 +50,5 @@ endfunction(create_test)
 
 enable_testing()
 create_test(token_extractor)
+create_test(data_file)
 # NOTE don't forget to add command to .appveyor.yml

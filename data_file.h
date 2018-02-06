@@ -7,11 +7,33 @@
 #include <ostream>
 #include <algorithm>
 #include <numeric>
+#include <utility>
 #include <vector>
+#include <experimental/filesystem>
 
 struct TeiFileParsed {
-    std::string_view category;
-    pugi::xml_document& root;
+    explicit TeiFileParsed(std::string c, std::string_view content)
+        : category(std::move(c))
+        , root()
+    {
+        root.load_string(content.data());
+    }
+
+    explicit TeiFileParsed(std::string c, const std::experimental::filesystem::path& filePath)
+            : category(std::move(c))
+              , root()
+    {
+        root.load_file(filePath.c_str());
+    }
+
+    TeiFileParsed(TeiFileParsed&& other) noexcept
+    {
+        this->category = std::move(other.category);
+        this->root.reset(other.root);
+    }
+
+    std::string category;
+    pugi::xml_document root;
 };
 
 template<typename FeatureExtractor>
@@ -97,6 +119,8 @@ void data_file<FeatureExtractor>::WordHandler::operator()(Word&& word)
         return lhs + '_' + rhsString;
     };
     std::vector<std::string_view> values = mParent->extractor(word);
+    if (values.empty())
+        return;
     auto token = std::accumulate(++values.cbegin(), values.cend(), std::string(*values.cbegin()), concat);
     mParent->targetFile << " " << token;
 }
@@ -110,7 +134,7 @@ data_file<FeatureExtractor>::WordHandler::WordHandler(data_file<FeatureExtractor
 
 template<typename FeatureExtractor>
 data_file<FeatureExtractor>& operator<<(data_file<FeatureExtractor>& dataFile,
-                                        TeiFileParsed&& teiFile)
+                                        TeiFileParsed& teiFile)
 {
     dataFile.add(teiFile);
     return dataFile;

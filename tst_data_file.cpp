@@ -135,28 +135,27 @@ TEST_CASE("file reading")
         return {word.attributes["lemma"], word.attributes["type"]};
     };
 
-    pugi::xml_document doc;
     std::stringstream output;
     auto data_file = make_data_file(output, featureExtractor);
     std::string_view expected;
 
     SECTION("one long document") {
-        doc.load_string(radcliffBirt);
-        data_file << TeiFileParsed{"astronomie", doc};
+        TeiFileParsed tei{"astronomie", std::string_view(radcliffBirt)};
+        data_file << tei;
         expected = "\n__label__astronomie William_NE Radcliffe_NE Birt_NE der_ART Krater_NN Birt_NE und_KON der_ART Rima_NE Birt_NE auf_APPR der_ART Erdmond_NN sein_VAFIN nach_APPR ihm_PPER benennen_VVPP";
     }
 
     SECTION("one file, two documents") {
-        doc.load_string(twoDocs);
-        data_file << TeiFileParsed{"astronomie", doc};
+        TeiFileParsed tei{"astronomie", std::string_view(twoDocs)};
+        data_file << tei;
         expected = "\n__label__astronomie William_NE" \
                    "\n__label__astronomie William_NE";
     }
 
     SECTION("two files") {
-        doc.load_string(simpleFile);
-        data_file << TeiFileParsed{"astronomie", doc}
-                  << TeiFileParsed{"chemie", doc};
+        TeiFileParsed tei1{"astronomie", std::string_view(simpleFile)};
+        TeiFileParsed tei2{"chemie", std::string_view(simpleFile)};
+        data_file << tei1 << tei2;
         expected = "\n__label__astronomie William_NE" \
                    "\n__label__chemie William_NE";
     }

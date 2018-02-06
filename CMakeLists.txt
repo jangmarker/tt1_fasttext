@@ -25,7 +25,7 @@ endif()
 add_subdirectory(3rdparty/pugixml-1.8)
 include_directories(3rdparty/pugixml-1.8/src/)
 
-set(SOURCE_FILES cli.h token_extractor.h data_file.h tei_directory.cpp tei_directory.h)
+set(SOURCE_FILES cli.h token_extractor.h data_file.h tei_directory.cpp tei_directory.h cli.cpp)
 add_library(libtt1_fasttext ${SOURCE_FILES})
 target_link_libraries(libtt1_fasttext pugixml)
 

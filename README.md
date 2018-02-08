@@ -16,7 +16,7 @@ The code uses features of C++17, including:
 - string_view
 - experimental/filesystem
 
-It was tested with Visual Studio 15.0 2017 and GCC 7.2.1.
+It was tested with GCC 7.2.1.
 
 ## Usage
 
